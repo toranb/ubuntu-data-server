@@ -1,7 +1,7 @@
 {
     "run_list": [
 	"main::mysql",
-	"main::mongodb"
+	"main::mongodb",
         "main::openssh-server"
     ],
     "ssh_port": "7599",
@@ -9,14 +9,14 @@
         "rootpw":"????",
         "clients": {
             "blog": {
-                "remote_ip":"192.168.0.19",
+                "remote_ip":"%",
                 "remote_user":"blog",
-                "remote_userpw":"????"            
+                "remote_userpw":"????"
             },
             "other": {
-                "remote_ip":"192.168.0.19",
+                "remote_ip":"%",
                 "remote_user":"other",
-                "remote_userpw":"????"            
+                "remote_userpw":"????"
             }
         }
     }
