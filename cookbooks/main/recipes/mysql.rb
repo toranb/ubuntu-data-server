@@ -31,5 +31,5 @@ end
 
 node[:mysql][:clients].each_pair do |db_name, client| 	
     execute "mysql -u root --password=#{node[:mysql][:rootpw]} -e \"create database if not exists #{db_name};\""
-    execute "mysql -u root --password=#{node[:mysql][:rootpw]} -e \"grant all on #{db_name}.* to '#{client[:remote_user]}'@'#{client[:remote_ip]}' identified by '#{client[:remote_userpw]}';\""
+    execute "mysql -u root --password=#{node[:mysql][:rootpw]} -e \"grant all on #{db_name}.* to '#{client[:remote_user]}'@'%' identified by '#{client[:remote_userpw]}';\""
 end
