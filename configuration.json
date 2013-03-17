@@ -1,23 +1,63 @@
 {
+    "platform_family": "debian",
     "run_list": [
-	"main::mysql",
-	"main::mongodb",
-        "main::openssh-server"
+        "main::openssh-server",
+        "main::mongodb",
+        "postgresql::server",
+        "main::postgres"
     ],
     "ssh_port": "7599",
-    "mysql": {
-        "rootpw":"????",
-        "clients": {
-            "blog": {
-                "remote_ip":"%",
-                "remote_user":"blog",
-                "remote_userpw":"????"
-            },
-            "other": {
-                "remote_ip":"%",
-                "remote_user":"other",
-                "remote_userpw":"????"
-            }
+    "main_users": {
+        "xavias": {
+            "password": "???",
+            "groups": []
         }
+    },
+    "postgresql": {
+        "config": {
+            "listen_addresses": "*"
+        },
+        "password": {
+            "postgres": "???"
+        },
+        "pg_hba": [
+            {
+                "type": "local",
+                "db": "all",
+                "user": "postgres",
+                "addr": "",
+                "method": "trust"
+            },
+            {
+                "type": "host",
+                "db": "all",
+                "user": "xavias",
+                "addr": "192.168.0.0/0",
+                "method": "md5"
+            },
+            {
+                "type": "host",
+                "db": "blog",
+                "user": "blog",
+                "addr": "192.168.0.19/0",
+                "method": "md5"
+            }
+        ],
+        "databases": [
+            {
+                "owner": "blog",
+                "name":"blog"
+            }
+        ],
+    "users": [
+        {
+            "username": "xavias",
+            "password": "???"
+        },
+        {
+            "username":"blog",
+            "password":"???"
+        }
+    ]
     }
 }
