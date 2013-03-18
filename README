@@ -5,7 +5,7 @@ If you have not already done so, install git locally and pull down this project
     2.) git clone https://github.com/toranb/ubuntu-data-server.git chef
 
 Please modify the following in configuration.json before you kick off the installer
-    1.) modify the msyql configuration to reflect ip/username/password
+    1.) modify the postgresql configuration to reflect ip/username/password
     2.) optionally you can modify the ssh port if you prefer
 
 To generate passwords for the user section of the configuration 
@@ -13,5 +13,5 @@ To generate passwords for the user section of the configuration
     openssl passwd -1 "theplaintextpassword"
     More information can be found @ http://wiki.opscode.com/display/chef/Resources
 
-To run the chef script and setup your mongo and mysql server:
+To run the chef script and setup your mongo and postgresql server:
     sudo ./install.sh configuration.json
