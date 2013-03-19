@@ -14,4 +14,5 @@ To generate passwords for the user section of the configuration
     More information can be found @ http://wiki.opscode.com/display/chef/Resources
 
 To run the chef script and setup your mongo and postgresql server:
+    git submodule update --init
     sudo ./install.sh configuration.json
